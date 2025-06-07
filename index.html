@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Potter AI</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <section>
+        <div>
+          <div>
+            <h1>PotterAI</h1>
+          </div>
+          <button id="lexikonBtn">Spells A-Z</button>
+        </div>
+        <div id="lexikonoverlay" class="lexikon-overlay">
+          <button id="closeLexikonBtn" aria-label="close lexikon overlay">
+            &times;
+          </button>
+          <ul>
+            <li>Aberto</li>
+            <li>Accio</li>
+            <li>Aguamenti</li>
+            <li>Alohomora</li>
+            <li>Anapneo</li>
+            <li>Aparecium</li>
+            <li>Apparate</li>
+            <li>Ascendio</li>
+            <li>Avada Kedavra</li>
+            <li>Avis</li>
+            <li>Bat</li>
+            <li>Bombardo</li>
+            <li>Brackium Emendo</li>
+            <li>Capacious Extremis</li>
+            <li>Confundo</li>
+            <li>Conjunctivitis Curse</li>
+            <li>Crinus Muto</li>
+            <li>Crucio</li>
+            <li>Diffindo</li>
+            <li>Disillusionment Charm</li>
+            <li>Disapparate</li>
+            <li>Engorgio</li>
+            <li>Episkey</li>
+            <li>Expecto patronum</li>
+            <li>Erecto</li>
+            <li>Evanesco</li>
+            <li>Expelliarmus</li>
+            <li>Ferula</li>
+            <li>Fidelius Charm</li>
+            <li>Fiendfyre Curse</li>
+            <li>Finite Incantatem</li>
+            <li>Furnunculus Curse</li>
+            <li>Geminio</li>
+            <li>Glisseo</li>
+            <li>Homenum Revelio</li>
+            <li>Homonculus Charm</li>
+            <li>Immobulus</li>
+            <li>Impedimenta</li>
+            <li>Incarcerous</li>
+            <li>Imperio</li>
+            <li>Impervius</li>
+            <li>Incendio</li>
+            <li>Langlock</li>
+            <li>Legilimens</li>
+            <li>Levicorpus</li>
+            <li>Locomotor Mortis</li>
+            <li>Lumos</li>
+            <li>Morsmordre</li>
+            <li>Mucus Ad Nauseam</li>
+            <li>Muffliato</li>
+            <li>Nox</li>
+            <li>Obliviate</li>
+            <li>Obscuro</li>
+            <li>Oculus Reparo</li>
+            <li>Oppugno</li>
+            <li>Petrificus Totalus</li>
+            <li>Periculum</li>
+            <li>Piertotum Locomotor</li>
+            <li>Protean Charm</li>
+            <li>Protego</li>
+            <li>Reducto</li>
+            <li>Reducio</li>
+            <li>Renneverate</li>
+            <li>Reparifors</li>
+            <li>Reparo</li>
+            <li>Rictusempra</li>
+            <li>Riddikulus</li>
+            <li>Scourgify</li>
+            <li>Sectumsempra</li>
+            <li>Serpensortia</li>
+            <li>Silencio</li>
+            <li>Sonorus</li>
+            <li>Spongify</li>
+            <li>Stupefy</li>
+            <li>Tarantallegra</li>
+            <li>Unbreakable Vow</li>
+          </ul>
+        </div>
+        <div class="conversation-container">
+          <div class="chat-messages" id="chatMessages"></div>
+          <div class="chatbar-wrapper">
+            <div class="input-container">
+              <input type="text" id="chatbar" placeholder="Enter your Spell" />
+              <div id="suggestions" class="autocomplete-suggestions"></div>
+              <i class="fas fa-paper-plane" id="sendBtn"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="js/script.js" type="module"></script>
+  </body>
+</html>

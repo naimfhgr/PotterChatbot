@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body {
+  background: black;
+  color: white;
+}
+
+h1 {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  text-align: left;
+  font-family: "Sora", sans-serif;
+  padding-left: 1rem;
+  position: sticky;
+}
+ul {
+  background-color: white;
+  font-family: "IM Fell English", serif;
+  font-size: 1.5rem;
+  color: black;
+}
+.conversation-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scrollbar-width: none;
+}
+
+.chatbar-wrapper {
+  position: fixed;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  width: 90%;
+  max-width: 700px;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+#chatbar {
+  flex: 1;
+  padding: 10px 40px 10px 10px;
+  font-size: 1em;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 11px;
+  font-family: "IM Fell English", serif;
+}
+
+#chatbar:hover {
+  border-color: #9747ff;
+}
+#sendBtn {
+  position: absolute;
+  right: 15px;
+  font-size: 18px;
+  top: 25%;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+#sendBtn:hover {
+  color: #9747ff;
+  transform: scale(1.1);
+}
+
+#lexikonBtn {
+  font-family: "IM Fell English", serif;
+  background-color: black;
+  color: white;
+  padding: 15px 25px;
+  font-size: 1.2em;
+  border: 2px solid white;
+  border-radius: 5px;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+}
+
+#lexikonBtn:hover {
+  border-color: #9747ff;
+  color: #9747ff;
+}
+
+.lexikon-overlay {
+  position: fixed;
+  top: 0;
+  right: -400px; /* hidden off screen */
+  width: 350px;
+  height: 100%;
+  background-color: #f4f4f4;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.lexikon-overlay.open {
+  right: 0; /* slides in */
+}
+
+#lexikonoverlay ul li:hover {
+  color: #9747ff;
+  cursor: pointer;
+}
+
+#lexikonoverlay ul {
+  max-height: 100vh; /* or less if you want padding */
+  overflow-y: auto;
+  padding: 1rem;
+  margin: 0 auto;
+  width: 90%; /* restrict width if needed */
+  box-sizing: border-box;
+}
+
+#closeLexikonBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+  z-index: 1000;
+  display: none;
+}
+
+#closeLexikonBtn:hover {
+  color: #6a2dcc;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  max-height: 70vh;
+  padding: 1rem;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #9747ff;
+  color: black;
+  padding: 12px 18px;
+  border-radius: 16px 16px 0 16px;
+  max-width: 75%;
+  word-wrap: break-word;
+  font-family: "IM Fell English", serif;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: transparent;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 16px 16px 16px 0;
+  max-width: 75%;
+  word-wrap: break-word;
+  border: 1px solid #333;
+  font-family: "IM Fell English", serif;
+}
+
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 999;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: "IM Fell English", serif;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.autocomplete-suggestions div {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.autocomplete-suggestions div:hover {
+  background-color: #f0f0f0;
+}
+
+.autocomplete-suggestions.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+    padding-left: 0.5rem;
+    text-align: center;
+  }
+
+  #lexikonBtn {
+    top: 15px;
+    right: 15px;
+    padding: 10px 15px;
+    font-size: 1em;
+  }
+
+  .chatbar-wrapper {
+    bottom: 100px;
+    width: 95%;
+  }
+
+  #chatbar {
+    font-size: 0.95em;
+    padding: 10px 35px 10px 10px;
+  }
+
+  #sendBtn {
+    right: 10px;
+    font-size: 16px;
+  }
+
+  .conversation-container {
+    padding: 15px;
+    padding-bottom: 160px;
+  }
+
+  .chat-messages {
+    max-height: 60vh;
+    padding: 0.5rem;
+  }
+
+  .user-message,
+  .bot-message {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .lexikon-overlay {
+    width: 100%;
+    right: -100%;
+  }
+
+  .lexikon-overlay.open {
+    right: 0;
+  }
+
+  #lexikonoverlay ul {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .autocomplete-suggestions {
+    font-size: 1rem;
+    max-height: 150px;
+  }
+}
